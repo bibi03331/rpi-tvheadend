@@ -1,9 +1,11 @@
-FROM cellofellow/rpi-arch
-MAINTAINER romainf
+FROM resin/rpi-raspbian
 
-RUN pacman --noconfirm -Sy base-devel git avahi nss-mdns openssl python2 libunistring && pacman --noconfirm -Scc
+MAINTAINER Sebastien LAPORTE
+
+RUN apt-get update && apt-get install -y nano git openssl build-essential python-dev libssl-dev pkg-config gettext liburiparser-dev libnss-mdns bzip2 wget cmake
 
 # Compile tvheadend from master
+RUN git config --global http.sslVerify false
 RUN cd /tmp && git clone https://github.com/tvheadend/tvheadend.git && cd /tmp/tvheadend && ./configure && make && make install && cd / && rm -rf /tmp/tvheadend
 
 # Config directory, should be persisted
