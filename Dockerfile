@@ -28,6 +28,9 @@ RUN cd /tmp && \
     cd / && \
     rm -rf /tmp/tvheadend
 
+# Script to start tvheadend
+ADD start.sh /start.sh
+
 # Config directory, should be persisted
 VOLUME ["/config"]
 
