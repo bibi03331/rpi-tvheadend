@@ -2,7 +2,7 @@ FROM resin/rpi-raspbian
 
 MAINTAINER Sebastien LAPORTE
 
-RUN apt-get update && apt-get install -y nano git openssl build-essential python-dev libssl-dev pkg-config gettext liburiparser-dev libnss-mdns bzip2 wget cmake
+RUN apt-get update && apt-get install -y nano git openssl build-essential python-dev libssl-dev pkg-config gettext liburiparser-dev libnss-mdns bzip2 wget cmake ca-certificates
 
 # Compile tvheadend from master
 RUN git config --global http.sslVerify false
