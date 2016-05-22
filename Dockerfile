@@ -28,6 +28,10 @@ RUN cd /tmp && \
     cd / && \
     rm -rf /tmp/tvheadend
 
+RUN apt-get remove -y build-essential && \
+    apt-get autoremove -y && \
+    apt-get clean
+
 # Config directory, should be persisted
 VOLUME ["/config"]
 
