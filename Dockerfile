@@ -28,13 +28,10 @@ RUN cd /tmp && \
     cd / && \
     rm -rf /tmp/tvheadend
 
-# Script to start tvheadend
-ADD start.sh /start.sh
-
 # Config directory, should be persisted
 VOLUME ["/config"]
 
-# Records directory, for video recorder and timeshif
+# Records directory, for video recorder and timeshift
 VOLUME ["/records"]
 
 # HTTP port (web interface)
@@ -43,4 +40,6 @@ EXPOSE 9981
 # HTSP port (stream)
 EXPOSE 9982
 
-CMD ["/usr/local/bin/tvheadend -c /config -C"]
+ENTRYPOINT ["/usr/local/bin/tvheadend"]
+
+CMD ["-c", "/config", "-C"]
