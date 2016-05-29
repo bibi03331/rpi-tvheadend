@@ -42,6 +42,10 @@ If you want to persist video records, you should mount an external HDD.
 
 **Port 9982/tcp** is used for HTSP stream
 
+Installation
+------------
+initctl script : Copy docker-tvheadend.service to /etc/systemd/system/multi-user.target.wants
+
 Contributions
 ------------
 
