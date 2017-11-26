@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  server:
+    image: ${TVHEADEND_IMAGE}
+    ports:
+      - "9981:9981"
+      - "9982:9982"
+    volumes:
+      - ./data/config:/config
+      - ./data/records:/records
+    privileged: true
