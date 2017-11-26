@@ -41,3 +41,18 @@ docker-compose up -d
 
 - **Port 9981/tcp** is used for the HTTP interface. Go to http://ip:9981/ in a web browser to configure it.
 - **Port 9982/tcp** is used for HTSP stream
+
+### Tuner installation
+
+Tuner installation for AverMedia Volar HD Pro Carte TV USB :
+
+```bash
+cd /lib/firmware
+wget http://xgazza.altervista.org/Linux/DVB/dvb-usb-af9035-02.fw
+wget http://www.ite.com.tw/uploads/firmware/v3.6.0.0/dvb-usb-it9135.zip
+unzip
+dd if=dvb-usb-it9135.fw ibs=1 skip=64 count=8128 of=dvb-usb-it9135-01.fw
+dd if=dvb-usb-it9135.fw ibs=1 skip=12866 count=5817 of=dvb-usb-it9135-02.fw
+cp dvb-usb-it9135* /lib/firmware/
+tail -40 /var/log/kern.log
+```
