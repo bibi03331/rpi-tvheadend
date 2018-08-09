@@ -1,6 +1,6 @@
-FROM resin/rpi-raspbian
+FROM resin/armv7hf-debian-qemu
 
-MAINTAINER Sebastien LAPORTE
+RUN [ "cross-build-start" ]
 
 RUN apt-get update && \
     apt-get install -y  nano \
@@ -32,6 +32,8 @@ RUN apt-get remove -y build-essential && \
     apt-get autoremove -y && \
     apt-get clean
 
+RUN [ "cross-build-end" ]
+	
 # Config directory, should be persisted
 VOLUME ["/config"]
 
